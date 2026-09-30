@@ -24,8 +24,8 @@
     </div>
   </header>
 
-  <main class="wrap" id="main">
-    <section class="hero">
+  <main id="main">
+    <section class="wrap hero">
       <div>
         <p class="eyebrow">Poverty · Education · Policy evaluation</p>
 
@@ -85,7 +85,30 @@
         <a href="cv.html">Full CV</a>
       </aside>
     </section>
+
+    <section class="places" aria-labelledby="places-title">
+      <div class="wrap">
+        <div class="places-head">
+          <p class="eyebrow">Around the world</p>
+          <h2 id="places-title">Where my research has taken me</h2>
+          <p>Countries where I studied, worked or held research visits, presented my work, carried out
+            projects, or which my research studies directly. Move over the map to explore: the details of
+            each highlighted country appear below.</p>
+        </div>
+        <div class="map-frame">
+          <canvas id="world-canvas" role="img" aria-label="World map highlighting the countries connected to my work. The same information is available through the country buttons below."></canvas>
+          <div class="map-tip" id="map-tip" hidden></div>
+        </div>
+        <div class="places-grid">
+          <div class="place-list" id="place-list" role="group" aria-label="Countries"></div>
+          <div class="place-panel" id="place-panel" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <script src="world-dots.js"></script>
+  <script src="map.js"></script>
 
   <footer>
     <div class="wrap">
