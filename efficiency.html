@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How efficient is a school? | Anna Mergoni</title>
+  <meta name="description" content="An interactive explainer of efficiency analysis (Data Envelopment Analysis): drag the schools and watch the efficiency frontier and scores update.">
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header>
+    <div class="wrap bar">
+      <a class="name" href="index.html">Anna Mergoni</a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="research.html">Research</a>
+        <a href="projects.html">Projects</a>
+        <a href="teaching.html">Teaching &amp; Talks</a>
+        <a href="cv.html">CV</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap" id="main">
+    <div class="page-head">
+      <p class="eyebrow">Interactive explainer</p>
+      <h1>How efficient is a school?</h1>
+      <p>
+        Two schools can get the same results with very different budgets. Efficiency analysis asks
+        how much each one could improve, by comparing it with the schools that do best with what they have.
+        Drag the schools below and see what changes.
+      </p>
+    </div>
+
+    <section class="dea" aria-label="Interactive efficiency chart">
+      <div class="dea-controls">
+        <div>
+          <span class="dea-control-label" id="dea-model-label">Frontier</span>
+          <div class="segmented" id="dea-model" role="group" aria-labelledby="dea-model-label">
+            <button type="button" data-v="crs" aria-pressed="false">Constant returns</button>
+            <button type="button" data-v="vrs" aria-pressed="true">Variable returns</button>
+            <button type="button" data-v="fdh" aria-pressed="false">Free disposal hull</button>
+          </div>
+        </div>
+        <div>
+          <span class="dea-control-label" id="dea-orient-label">Question</span>
+          <div class="segmented" id="dea-orient" role="group" aria-labelledby="dea-orient-label">
+            <button type="button" data-v="in" aria-pressed="true">Same results, less money?</button>
+            <button type="button" data-v="out" aria-pressed="false">Same money, better results?</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dea-grid-layout">
+        <figure class="dea-figure">
+          <svg id="dea-chart" viewBox="0 0 640 420" role="group" aria-label="Schools plotted by spending per pupil and share of proficient pupils, with the efficiency frontier">
+            <defs>
+              <marker id="dea-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                <path d="M0,0 L10,5 L0,10 z" class="dea-arrowhead"/>
+              </marker>
+            </defs>
+          </svg>
+          <figcaption>
+            <span class="key key-frontier"></span> Efficiency frontier
+            <span class="key key-efficient"></span> Efficient school
+            <span class="key key-other"></span> Other school
+            <span class="quiet">· Drag a school, or select it and use the arrow keys. Schools and numbers are made up.</span>
+          </figcaption>
+          <div class="dea-buttons">
+            <button type="button" id="dea-add">Add a school</button>
+            <button type="button" id="dea-shuffle">Shuffle</button>
+            <button type="button" id="dea-reset">Reset</button>
+          </div>
+        </figure>
+
+        <aside class="dea-side">
+          <div class="dea-selected" id="dea-selected" aria-live="polite"></div>
+          <p class="dea-control-label">Efficiency scores</p>
+          <ol class="dea-ranking" id="dea-ranking"></ol>
+          <div class="dea-model-note">
+            <p data-show-dea-model="crs" hidden><strong>Constant returns:</strong> a school twice as big should achieve twice as much. The frontier is the straight line through the school with the best results per euro.</p>
+            <p data-show-dea-model="vrs"><strong>Variable returns:</strong> small and large schools may face different conditions. Schools are compared with similar-sized schools, or mixes of them.</p>
+            <p data-show-dea-model="fdh" hidden><strong>Free disposal hull:</strong> schools are only compared with real schools that do at least as well, never with mixes. The frontier becomes a staircase.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section explain">
+      <div class="explain-grid">
+        <article>
+          <p class="label">1 · The frontier</p>
+          <h2>Best practice, drawn from the data</h2>
+          <p>
+            The blue line connects the schools that achieve the most with their resources. Nobody has to
+            decide in advance what a "good" school looks like: the best observed schools set the standard.
+            This approach is called <strong>Data Envelopment Analysis</strong> (DEA), because the frontier
+            wraps around, or envelops, the data.
+          </p>
+        </article>
+        <article>
+          <p class="label">2 · The score</p>
+          <h2>Distance to the frontier</h2>
+          <p>
+            A school's score measures how far it is from the frontier. With the question "same results,
+            less money?", a score of 80% means the school could reach its results with 80% of its budget.
+            With "same money, better results?", it means the school achieves 80% of what its budget allows.
+            Schools on the frontier score 100%.
+          </p>
+        </article>
+        <article>
+          <p class="label">3 · The benchmarks</p>
+          <h2>Who to learn from</h2>
+          <p>
+            The arrow points to the school's target on the frontier. The schools that define that part of
+            the frontier are its benchmarks: comparable schools that show what is possible. Try moving one
+            benchmark, and watch the scores of the others change.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section explain-wide">
+      <h2>Why it matters for policy</h2>
+      <p>
+        Governments spend large budgets on schools, courts and social protection, and they want to know
+        whether that money is well used. Efficiency analysis gives a fair comparison: each unit is judged
+        against similar units, not against an abstract ideal. In my research I combine it with causal
+        methods, to ask not only whether a policy works, but whether it helps schools and services use
+        their resources better. Examples include the effect of
+        <a href="https://doi.org/10.1016/j.omega.2023.102891">ICT on school efficiency</a> and
+        <a href="https://doi.org/10.1016/j.ejor.2025.06.020">principals' management practices</a>.
+      </p>
+      <p>
+        Real analyses go further than this toy: they use several inputs and outputs at once, account for
+        outliers with <em>robust</em> estimators, and compare units in similar contexts with
+        <em>conditional</em> estimators. For a full overview of the field, see
+        <a href="https://doi.org/10.1016/j.ejor.2024.12.049">Fifty years of data envelopment analysis</a>.
+      </p>
+    </section>
+
+    <section class="section explain-wide">
+      <h2>Try it with your own data</h2>
+      <p>
+        In R, the <a href="https://cran.r-project.org/package=Benchmarking">Benchmarking</a> package computes
+        the scores shown above, and my package <a href="https://cran.r-project.org/package=rcDEA">rcDEA</a>
+        adds robust and conditional versions. This is the example from the chart:
+      </p>
+<pre class="code"><code>library(Benchmarking)
+library(rcDEA)
+
+spending    &lt;- c(5, 6.5, 8, 9.5, 7, 11, 12.5, 10)   # input, € thousand per pupil
+proficiency &lt;- c(52, 70, 76, 84, 55, 80, 90, 62)    # output, % proficient
+
+# Standard DEA, variable returns to scale, input orientation
+eff(dea(spending, proficiency, RTS = "vrs", ORIENTATION = "in"))
+
+# Robust (order-m) DEA: less sensitive to outliers
+r &lt;- robust_DEA(input = spending, output = proficiency, m = 5, B = 200,
+                RTS = "vrs", ORIENTATION = "in")
+r$eff</code></pre>
+      <p class="quiet">
+        Want to learn more? I teach non-parametric efficiency analysis in the
+        <a href="teaching.html">FLAMES doctoral training network</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Anna Mergoni · HIVA – KU Leuven, Parkstraat 47, 3000 Leuven, Belgium</span>
+      <a href="mailto:anna.mergoni@kuleuven.be">anna.mergoni@kuleuven.be</a>
+    </div>
+  </footer>
+
+  <script src="efficiency.js"></script>
+</body>
+</html>

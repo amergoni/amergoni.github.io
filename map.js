@@ -11,7 +11,7 @@ const PLACES = [
       ["study", "PhD in Economics, KU Leuven (2018 – 2023)"],
       ["paper", "Long-term poverty dynamics in Belgium on linked administrative data (book chapter, 2024; working paper)"],
       ["project", "Re-InVEST.be – anti-poverty policies in Belgium (BELSPO)"],
-      ["talk", "ESPAnet Belgium seminar, Leuven (2025) · Irish College Leuven (2025) · WeLaR Final Conference, Brussels (2025)"]
+      ["talk", "ESPAnet Belgium seminar, Leuven (2025) · Irish College Leuven (2025)"]
     ]
   },
   {
@@ -20,7 +20,7 @@ const PLACES = [
       ["study", "BSc and MSc in Economics, University of Pisa and Sant'Anna School of Advanced Studies"],
       ["visit", "Politecnico di Milano (Fall 2021)"],
       ["paper", "School principals' management and efficiency in Italian schools (EJOR, 2026)"],
-      ["talk", "ESPAnet Conference, Milan (2025) · European University Institute, Florence (2026)"],
+      ["talk", "ESPAnet Conference, Milan (2025)"],
       ["meeting", "HEQUITY toolkit development meeting, Padova (June 2026) · COST Action EfficientJustice meeting, Canazei"],
       ["teaching", "PhD classes at IMT Lucca (2022) and Politecnico di Milano (2021)"]
     ]
